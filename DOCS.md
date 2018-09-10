@@ -12,7 +12,8 @@
 - See also `many-images-unified.mp4` for a stitch of all data used
 - Model does not work on track 3 because because the data is ridiculously unbalanced. "bad" data must be removed, and more "good" data should be acquired. Data augmentation techniques should also be used.
 - To run the notebooks in the `./other-notebooks/` directory, you must move them to the root directory.
-If you don't it will not find the files its looking for. These notebooks are essentially just a playground for me. I removed it from the root directory to reduce clutter but it maybe helpful to you.
+If you don't it will not find the files it's looking for. These notebooks are essentially just a playground for me. I removed it from the root directory to reduce clutter but I decided not to delete them because it maybe helpful to you.
+![Unbalanced Data Sets](./samples/misc-images/unbalanced-data.png)
 
 # SETUP
 - Install [anaconda](https://www.continuum.io/downloads) or [miniconda](https://conda.io/miniconda.html)
