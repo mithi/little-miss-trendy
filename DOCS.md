@@ -12,7 +12,7 @@
 - See also `x-many-images-unified.mp4` for a stitch of all data used and preprocessing done (IE cropping and perspective transform)
 - Model does not work on track 3 because because the data is ridiculously unbalanced. "bad" data must be removed, and more "good" data should be acquired. Data augmentation techniques should also be used.
 - To run the notebooks in the `./other-notebooks/` directory, you must move them to the root directory.
-If you don't it will not find the files it's looking for. These notebooks are essentially just a playground for me. I removed it from the root directory to reduce clutter but I decided not to delete them because it maybe helpful to you.
+If you don't they will not find the files they're looking for. These notebooks are essentially just a playground for me. I removed it from the root directory to reduce clutter but I decided not to delete them because it maybe helpful to you.
 
 ![Unbalanced Data Sets](./samples/misc-images/unbalanced-data.png)
 
@@ -21,7 +21,7 @@ If you don't it will not find the files it's looking for. These notebooks are es
 
 - Create environment
 
-```python
+```
 # Use TensorFlow without GPU
 $ conda env create -f ./misc/environments.yml
 
@@ -38,23 +38,26 @@ $ Jupyter notebook
 
 
 # Unify Datasets
-- You may have a lot and you may have a directory structure that looks like the image
+
+### You may have a lot and you may have a directory structure that looks like the image
 ![Before](./samples/misc-images/before.png)
-- And you may want to unify them so that they're easier to feed to your neural network
+
+### And you may want to unify them so that they're easier to feed to your neural network
 ![After](./samples/misc-images/after.png)
-- You use the following command on your terminal to copy all the images from the subdirectories in a
+
+### You use the following command on your terminal to copy all the images from the subdirectories in a
 directory A to directory B, so things get flat.
 ```
 find ./racing-logs/ -name '*.jpg' -exec cp '{}' ./samples/many-images/ \;
 ```
-- You probably also just want the file names of your data as opposed to the absolute path to your images,
-and you probably just need the image file name, and the steering angles (first row)
+
+### You probably also just want the file names of your data as opposed to the absolute path to your images, and you probably just need the image file name, and the steering angles (first row)
 
 | BEFORE | AFTER      |
 | ----------------------------- |:-------------------------------:|
 | ![csv before](./samples/misc-images/csv-before.png) |![csv after](./samples/misc-images/csv-after.png)|
 
-- Inspect and Run the ruby script
+### Inspect and Run the ruby script
 ```
 $ ruby ./misc/process-merge-csvs.rb
 ```
@@ -63,7 +66,7 @@ $ ruby ./misc/process-merge-csvs.rb
 - Inspect `A-PERSPECTIVE-TRANSFORM.ipynb`
 - Inspect `A-DATA-VIDEO.ipynb`
 - Inspect `A-PANDAS.ipynb`
-- Inspect helper functions at `helpers.py` and `video_helpers.py`
+- Inspect helper functions such as `helpers.py` and `video_helpers.py`
 
 # Train your Model
 - Run `A-MODEL-SAMPLE.ipynb`
