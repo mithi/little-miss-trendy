@@ -1,1 +1,2 @@
-little-miss-trendy
+# Little Miss Trendy
+- Read the DOCS
