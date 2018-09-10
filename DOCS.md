@@ -42,20 +42,27 @@ $ Jupyter notebook
 ### You may have a lot and you may have a directory structure that looks like the image
 ![Before](./samples/misc-images/before.png)
 
+---
+
 ### And you may want to unify them so that they're easier to feed to your neural network
 ![After](./samples/misc-images/after.png)
 
-### You use the following command on your terminal to copy all the images from the subdirectories in a
-directory A to directory B, so things get flat.
+---
+
+### You use the following command on your terminal to copy all the images from the subdirectories in a directory A to directory B, so things get flat.
 ```
 find ./racing-logs/ -name '*.jpg' -exec cp '{}' ./samples/many-images/ \;
 ```
+
+---
 
 ### You probably also just want the file names of your data as opposed to the absolute path to your images, and you probably just need the image file name, and the steering angles (first row)
 
 | BEFORE | AFTER      |
 | ----------------------------- |:-------------------------------:|
 | ![csv before](./samples/misc-images/csv-before.png) |![csv after](./samples/misc-images/csv-after.png)|
+
+---
 
 ### Inspect and Run the ruby script
 ```
