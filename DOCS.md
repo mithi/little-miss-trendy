@@ -8,7 +8,7 @@
 - MORE SECTIONS IN THE FUTURE
 
 # NOTES
-- Check the `videos` directory `track1-480p.mp3` and `track2-480.mp3` for current performance.
+- Check the `videos` directory `track1-480p.mp4` and `track2-480p.mp4` for current performance.
 - See also `x-many-images-unified.mp4` for a stitch of all data used and preprocessing done (IE cropping and perspective transform)
 - Model does not work on track 3 because because the data is ridiculously unbalanced. "bad" data must be removed, and more "good" data should be acquired. Data augmentation techniques should also be used.
 - To run the notebooks in the `./other-notebooks/` directory, you must move them to the root directory.
@@ -64,7 +64,7 @@ find ./racing-logs/ -name '*.jpg' -exec cp '{}' ./samples/many-images/ \;
 
 ---
 
-### Inspect and Run the ruby script
+### Inspect and run the Ruby script to do this and simplify your life
 ```
 $ ruby ./misc/process-merge-csvs.rb
 ```
