@@ -22,9 +22,9 @@ from helpers import BirdsEye
 MODEL = None
 MAX_SPEED = 2.0
 MAX_ANGLE = 45.0
-THROTTLE_MAX = 0.7
-C_SPEED = 1.0
-C_STEER = 10.0 #10.0
+THROTTLE_MAX = 0.7 # 0.72, 0.6
+C_SPEED = 0.9 # 1.1, 1.5
+C_STEER = 10.0 # 15.0
 
 INPUT_SHAPE = (66, 200, 3)
 
