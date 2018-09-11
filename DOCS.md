@@ -8,11 +8,14 @@
 - MORE SECTIONS IN THE FUTURE
 
 # NOTES
+
+- To run the notebooks in the `./other-notebooks/` directory, you must move them to the root directory.
+If you don't they will not find the files they're looking for. These notebooks are essentially just a playground for me. I removed it from the root directory to reduce clutter but I decided not to delete them because it maybe helpful to you.
+
+# Version 0.1 `model.h5`
 - Check the `videos` directory `track1-480p.mp4` and `track2-480p.mp4` for current performance.
 - See also `x-many-images-unified.mp4` for a stitch of all data used and preprocessing done (IE cropping and perspective transform)
 - Model does not work on track 3 because because the data is ridiculously unbalanced. "bad" data must be removed, and more "good" data should be acquired. Data augmentation techniques should also be used.
-- To run the notebooks in the `./other-notebooks/` directory, you must move them to the root directory.
-If you don't they will not find the files they're looking for. These notebooks are essentially just a playground for me. I removed it from the root directory to reduce clutter but I decided not to delete them because it maybe helpful to you.
 
 ![Unbalanced Data Sets](./samples/misc-images/unbalanced-data.png)
 
@@ -56,7 +59,7 @@ find ./racing-logs/ -name '*.jpg' -exec cp '{}' ./samples/many-images/ \;
 
 ---
 
-### You probably also just want the file names of your data as opposed to the absolute path to your images, and you probably just need the image file name, and the steering angles (first row)
+### Given that your dataset directory is now flat, you probably want to merge all your logs. You probably also just want the file names of your data as opposed to the absolute path to your images, and you probably just need the image file name (first row), and the steering angles (second row).
 
 | BEFORE | AFTER      |
 | ----------------------------- |:-------------------------------:|
