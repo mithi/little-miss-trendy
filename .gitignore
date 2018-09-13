@@ -30,25 +30,10 @@ var/
 *.manifest
 *.spec
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*,cover
-
 # Translations
 *.mo
 *.pot
 
-# Django stuff:
 *.log
 
 # Sphinx documentation
@@ -58,13 +43,5 @@ docs/_build/
 target/
 
 \.DS_Store
-
-racing-logs\.zip
-
-samples/many-images\.zip
-
-videos/track2\.MOV
-
-videos/track1\.MOV
 
 \.ipynb_checkpoints/
