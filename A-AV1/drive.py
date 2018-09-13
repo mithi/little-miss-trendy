@@ -70,7 +70,6 @@ def telemetry(sid, data):
         speed = float(data["speed"])
         img_string = data["image"]
 
-
         image = Image.open(BytesIO(base64.b64decode(img_string)))
         image_array = process_image(np.asarray(image))
         steering_angle = float(MODEL.predict(image_array[None, :, :, :]))
@@ -87,6 +86,7 @@ def telemetry(sid, data):
 
     else:
         sio.emit('manual', data={}, skip_sid=True)
+
 
 @sio.on('connect')
 def connect(sid, environ):
