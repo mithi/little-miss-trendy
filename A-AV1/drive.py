@@ -22,9 +22,9 @@ from helpers import BirdsEye
 MODEL = None
 MAX_SPEED = 2.0
 MAX_ANGLE = 45.0
-THROTTLE_MAX = 0.7 # 0.72, 0.6
-C_SPEED = 0.9 # 1.1, 1.5
-C_STEER = 10.0 # 15.0
+THROTTLE_MAX = 0.70 # 0.72, 0.6
+C_SPEED = 1.0 # 0.9, 1.1, 1.5
+C_STEER = 10.0 # 10, 15.0
 
 INPUT_SHAPE = (66, 200, 3)
 
@@ -70,12 +70,13 @@ def telemetry(sid, data):
         speed = float(data["speed"])
         img_string = data["image"]
 
+
         image = Image.open(BytesIO(base64.b64decode(img_string)))
         image_array = process_image(np.asarray(image))
         steering_angle = float(MODEL.predict(image_array[None, :, :, :]))
 
         throttle = THROTTLE_MAX - C_SPEED * (speed / MAX_SPEED)**2 - C_STEER * (steering_angle / MAX_ANGLE)**2
-        throttle = max(0.0, throttle)
+        throttle = max(0.001, throttle)
 
         print()
         print("PREVIOUS angle:", steering_angle, " | speed:", speed, " | throttle:", throttle)

@@ -7,7 +7,7 @@ csv_file_paths = []
 PARENT_DIR="./racing-logs/"
 
 # Full path to the output CSV file
-OUTPUT_FILE="./samples/logs.csv"
+OUTPUT_FILE="./samples/logs-v2.csv"
 
 Find.find(PARENT_DIR) do |path|
   csv_file_paths << path if path =~ /.*\.csv$/
