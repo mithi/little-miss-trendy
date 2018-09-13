@@ -1,13 +1,13 @@
 # WIP Contents
-- [DONE] NOTES
-- [DONE] Unify datasets
-- [DONE] Setup
-- [DONE] Preprocess and Analyze your Data
-- [DONE] Train your Model
-- [DONE] Drive your Model
-- MORE SECTIONS IN THE FUTURE
+- NOTES
+- Unify datasets
+- Setup
+- Preprocess and Analyze your Data
+- Train your Model
+- Drive your Model
 
 # NOTES
+- Can be driven on application version `formula-trend-1.0.0-alpha.4`
 
 - To run the notebooks in the `./other-notebooks/` directory, you must move them to the root directory.
 If you don't they will not find the files they're looking for. These notebooks are essentially just a playground for me. I removed it from the root directory to reduce clutter but I decided not to delete them because it maybe helpful to you.
@@ -82,8 +82,5 @@ $ ruby ./misc/process-merge-csvs.rb
 - Run `A-MODEL-SAMPLE.ipynb`
 
 # Drive your Model
-- Run your app
-- Inspect and Run `python drive.py ./misc/model.py`
-
-# MORE SECTIONS IN THE FUTURE
-- Todo
+- Run your app `formula-trend-1.0.0-alpha.4`
+- Inspect and Run `python drive.py ./misc/model.h5`
