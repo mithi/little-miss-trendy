@@ -41,14 +41,12 @@ sio = socketio.Server()
 
 def process_image(unprocessed_img):
 
-    cropped_img = unprocessed_img[YSTART:YSTOP, :, :]
-    sky_img = BIRDS_EYE.skyview(cropped_img)
+    img = unprocessed_img[YSTART:YSTOP, :, :]
+    img = BIRDS_EYE.skyview(img)
     img = sky_img[:, XSTART:XSTOP]
     #cv2.cvtColor(img, cv2.COLOR_RGB2YUV)
-    cv2.cvtColor(img, cv2.COLOR_BGR2YUV)
-
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2YUV)
     return img
-
 
 def send_control(steering_angle, throttle):
     sio.emit(
