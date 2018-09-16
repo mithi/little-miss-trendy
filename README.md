@@ -35,7 +35,7 @@ formula-trend-1.0.0-beta.3
 - Include more data of "recovery driving", IE during turns if it overshoots, it should have data how to
 recover from the overshooting.
 - Play with hyperparameters in `drive.py`
-```
+```python
 # Tweak parameters to adjust the throttle
 # throttle = THROTTLE_MAX - C_SPEED * (speed / MAX_SPEED)**2 - C_STEER * (steering_angle / MAX_ANGLE)**2
 # throttle = max(THROTTLE_MIN, throttle)
