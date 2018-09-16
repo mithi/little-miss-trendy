@@ -31,9 +31,10 @@ formula-trend-1.0.0-alpha.5
 formula-trend-1.0.0-beta.3
 ```
 
-## TO IMPROVE THE MODEL
+## TO IMPROVE THE MODEL AND PERFORMANCE
 - Include more data of "recovery driving", IE during turns if it overshoots, it should have data how to
 recover from the overshooting.
+- Rerun with different batch size, epoch and other parameters. Play with preprocessing use different color presentation etc etc.
 - Play with hyperparameters in `drive.py`
 ```python
 # Tweak parameters to adjust the throttle
