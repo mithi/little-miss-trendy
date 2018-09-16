@@ -52,3 +52,6 @@ C_STEER = 40.0
 # BETA 3: RED - TRACK 2, TRACK3
 # THROTTLE_MAX=0.8, C_STEER=40, THROTTLE_MIN=0.1, C_SPEED=1.0
 ```
+
+
+## [The three apps for mac can be downloaded in this Dropbox link](https://www.dropbox.com/sh/6ktu5bfuv34ua5r/AABu4xrCMuWagfJhjRExvPdza?dl=0)
