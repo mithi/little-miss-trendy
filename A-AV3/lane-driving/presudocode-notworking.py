@@ -71,13 +71,13 @@ def send_control(steering_angle, throttle):
 
 def switch_right():
     MODEL = MODEL_GREEN
-    STATUS = LEFT
+    STATUS = RIGHT
     send_control(45, 1.0)
 
 
 def switch_left():
     MODEL = MODEL_RED
-    STATUS = RIGHT
+    STATUS = LEFT
     send_control(-45, 1.0)
 
 
@@ -106,7 +106,7 @@ def telemetry(sid, data):
 
         image = Image.open(BytesIO(base64.b64decode(img_string)))
 
-        if obstact_detected():
+        if obstact_detected(image):
             if STATUS == LEFT:
                 switch_right()
             if STATUS == RIGHT:
