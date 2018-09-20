@@ -13,22 +13,33 @@ $ conda env create -f ./misc/environments.yml
 
 #Use TensorFlow with GPU
 $ conda env create -f ./misc/environment-gpu.yml
+
+# conda install -c anaconda keras-gpu
+# conda install keras
 ```
 
 # Unify Data
+- Maked directories to put your images
+```
+$ pwd
+/Users/mithi/Desktop/repos/little-miss-trendy/A-AV2
+$ mkdir ./road-images-2/red-flat
+$ mkdir ./road-images-2/green-flat
+
+```
 - Run to put all images from subdirectories to one directory
 ```
-$ find ./road-images/red/ -name '*.jpg' -exec cp '{}' ./road-images/red-flat/ \;
-$ find ./road-images/green/ -name '*.jpg' -exec cp '{}' ./road-images/green-flat/ \;
+$ find ./road-images-2/red/ -name '*.jpg' -exec cp '{}' ./road-images-2/red-flat/ \;
+$ find ./road-images-2/green/ -name '*.jpg' -exec cp '{}' ./road-images-2/green-flat/ \;
 ```
 - Run script to merge all log csv files to one csv file
 ```
 $ ruby ./misc/process-merge-csvs.rb ./PATH/TO/CSV/LOGS /PATH/TO/IMAGES /PATH/TO/FINAL/CSV/
-$ ruby ./misc/process-merge-csvs.rb ./road-images/green/ ./road-images/green-flat/ ./road-images/green.csv
-$ ruby ./misc/process-merge-csvs.rb ./road-images/red/ ./road-images/red-flat/ ./road-images/red.csv
+$ ruby ./misc/process-merge-csvs.rb ./road-images-2/green/ ./road-images-2/green-flat/ ./road-images-2/green.csv
+$ ruby ./misc/process-merge-csvs.rb ./road-images-2/red/ ./road-images-2/red-flat/ ./road-images-2/red.csv
 ```
 
-# Analyze data, train and save model 
+# Analyze data, train and save model
 - Activate environment and run Jupyter
 ```
 # for mac
@@ -43,8 +54,11 @@ $ Jupyter notebook
 ```
 $ pwd
 /Users/mithi/Desktop/DONOTBACKUP/apps/formula-trend-1.0.0-alpha.5/Mac/formula-trend-1.0.0-alpha.5.app/Contents
-
 $ ./MacOS/formula-trend-1.0.0-alpha.5
+
+$ pwd
+/Users/mithi/Desktop/DONOTBACKUP/apps/formula-trend-1.0.0-beta.3/Mac/formula-trend-1.0.0-beta.3.app/Contents/MacOS
+$ ./formula-trend-1.0.0-beta.3
 ```
 
 9. Run your agent either with model green.h5 or red.h5

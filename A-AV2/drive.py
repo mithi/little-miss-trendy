@@ -28,16 +28,16 @@ MAX_ANGLE = 45.0
 # Tweak parameters to adjust the throttle
 # throttle = THROTTLE_MAX - C_SPEED * (speed / MAX_SPEED)**2 - C_STEER * (steering_angle / MAX_ANGLE)**2
 # throttle = max(THROTTLE_MIN, throttle)
-THROTTLE_MAX = 0.95
+THROTTLE_MAX = 0.85
 THROTTLE_MIN = 0.01
 C_SPEED = 1.0
-C_STEER = 50.0
+C_STEER = 40.0
 
 
-# BETA 3: RED - TRACK 1
+# BETA 3: RED - TRACK 1 - red.h5
 # THROTTLE_MAX=0.6 C_STEER=50, THROTTLE_MIN=0.1, C_SPEED=1.0
 
-# BETA 3: RED - TRACK 2, TRACK3
+# BETA 3: RED - TRACK 2, TRACK3 - red.h5
 # THROTTLE_MAX=0.85, C_STEER=40, THROTTLE_MIN=0.1, C_SPEED=1.0
 
 # Crop and reshape parameters
