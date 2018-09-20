@@ -18,20 +18,36 @@ import pandas as pd
 import numpy as np
 import matplotlib.image as mpimg
 
+# Global MODEL variable instatiated to None
+# load from file upon starting the script in __main__
 MODEL = None
+
 MAX_SPEED = 2.0
 MAX_ANGLE = 45.0
-THROTTLE_MAX = 0.70 # 0.72, 0.6
-C_SPEED = 1.0 # 0.9, 1.1, 1.5
-C_STEER = 20.0 # 10, 15.0
 
-INPUT_H, INPUT_W = 75, 200
-INPUT_SHAPE = (INPUT_H, INPUT_W, 3)
-# Crop parameters
+# Tweak parameters to adjust the throttle
+# throttle = THROTTLE_MAX - C_SPEED * (speed / MAX_SPEED)**2 - C_STEER * (steering_angle / MAX_ANGLE)**2
+# throttle = max(THROTTLE_MIN, throttle)
+THROTTLE_MAX = 0.95
+THROTTLE_MIN = 0.01
+C_SPEED = 1.0
+C_STEER = 50.0
+
+
+# BETA 3: RED - TRACK 1
+# THROTTLE_MAX=0.6 C_STEER=50, THROTTLE_MIN=0.1, C_SPEED=1.0
+
+# BETA 3: RED - TRACK 2, TRACK3
+# THROTTLE_MAX=0.85, C_STEER=40, THROTTLE_MIN=0.1, C_SPEED=1.0
+
+# Crop and reshape parameters
 YSTART = 110
 YSTOP = 230
+INPUT_H, INPUT_W = 75, 200
+INPUT_SHAPE = (INPUT_H, INPUT_W, 3)
 
 
+# Initialize global Socket Server
 sio = socketio.Server()
 
 
@@ -52,6 +68,12 @@ def send_control(steering_angle, throttle):
         skip_sid=True)
 
 
+def predict_steer(img_string):
+    image = Image.open(BytesIO(base64.b64decode(img_string)))
+    image_array = process_image(np.asarray(image))
+    steering_angle = float(MODEL.predict(image_array[None, :, :, :]))
+    return steering_angle
+
 @sio.on('telemetry')
 def telemetry(sid, data):
 
@@ -62,17 +84,10 @@ def telemetry(sid, data):
         speed = float(data["speed"])
         img_string = data["image"]
 
-        image = Image.open(BytesIO(base64.b64decode(img_string)))
-        image_array = process_image(np.asarray(image))
-        steering_angle = float(MODEL.predict(image_array[None, :, :, :]))
+        steering_angle = predict_steer(img_string)
 
         throttle = THROTTLE_MAX - C_SPEED * (speed / MAX_SPEED)**2 - C_STEER * (steering_angle / MAX_ANGLE)**2
-        throttle = max(0.002, throttle)
-
-        #print()
-        #print("PREVIOUS angle:", steering_angle, " | speed:", speed, " | throttle:", throttle)
-        #print("CONTROL angle:", steering_angle, "throttle:", throttle);
-        #print()
+        throttle = max(THROTTLE_MIN, throttle)
 
         send_control(steering_angle, throttle)
 
@@ -87,6 +102,7 @@ def connect(sid, environ):
 
 
 if __name__ == '__main__':
+
     parser = argparse.ArgumentParser(description='Auto Driving!')
     parser.add_argument(
         'model',
