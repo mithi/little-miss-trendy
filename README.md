@@ -1,7 +1,9 @@
 # little-miss-trendy
 - See each directory readme for more details
 
-## Directory `./A-AV1/`
+# [SDC TALK](https://github.com/mithi/sdc-talk/)
+
+## Directory `./A-AV1/
 - Contains behavioral cloning work to to make a car run autonomously on app `formula-trend-1.0.0-alpha.4`
 
 ### Videos 
